@@ -1,0 +1,25 @@
+mysql> use users;
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_users    |
++--------------------+
+| hibernate_sequence |
+| stock_details      |
+| user               |
++--------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from user;
++----+----------+------------+
+| id | password | user_name  |
++----+----------+------------+
+|  2 | aj       | yashashree |
+|  1 | dan      | gargi      |
+|  3 | km       | kimaya     |
+|  4 | cj       | shivani    |
+|  5 | tj       | tejal      |
++----+----------+------------+
+5 rows in set (0.00 sec)
+
+mysql>
