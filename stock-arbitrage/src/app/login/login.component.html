@@ -1,0 +1,18 @@
+<div class="image"> 
+  <form #f='ngForm' class="login"  name="users" (ngSubmit)="Auth()" >
+    <h1 class="login-title">Login</h1>
+    <input type="text" class="login-input" placeholder="Enter you Username" [(ngModel)]="U" name="uname">
+    <input type="password" class="login-input" placeholder="Correct Password" [(ngModel)]="P" name="pass">
+    <input type="submit" class="login-button" value="Login Success" >
+    <a *ngIf="pass==1" routerLink="/list">
+    </a> 
+  </form> 
+</div>
+<!--routerLink="/list"
+<p>
+   [(ngModel)]="U"
+   [(ngModel)]="P"
+   (click)="Auth()"
+    You have entered 
+  </p>
+-->

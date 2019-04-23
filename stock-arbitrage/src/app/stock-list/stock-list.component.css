@@ -1,0 +1,49 @@
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body{
+  background: -webkit-linear-gradient(left, #15ce81, #6bf0fc);
+  background: linear-gradient(to right, #1aeb94, #1ed5e6);
+  font-family: 'Roboto', sans-serif;
+}
+section{
+  margin: 20px;
+}
+
+h1{
+  font-size: 30px;
+  color: rgb(90, 18, 18);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+  width:100%;
+}
+.tbl-header{
+  text-align: center;
+  background-color: rgba(64, 203, 238, 0.897);
+ }
+.tbl-content{
+  margin-top: 0px;
+  border: 1px solid rgba(32, 2, 2, 0.3);
+}
+th{
+  padding: 5px 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+}
+td{
+  padding: 5px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 16px;
+  color: rgb(29, 12, 12);
+  border-bottom: solid 1px rgba(39, 2, 2, 0.1);
+}
+h2 { color: #0d95e4; font-family: 'Droid serif', serif; font-size: 36px; font-weight: 400; font-style: italic; line-height: 44px; margin: 0 0 12px; text-align: center; }
+button{ align-self: flex-end}
