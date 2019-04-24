@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 //import javax.persistence.Column;;
 
-@Entity             //class with stock details attributes calculated diff as well as from where to buy
+@Entity      //class with stock details attributes calculated diff as well as from where to buy
 public class StockDetails {
 	    
 	@Override
@@ -34,7 +34,7 @@ public class StockDetails {
 	}
 	double NSE,BSE,Diff,Per_diff;
 	String Buy;
-    @Id
+	@Id
     int SrNo;
     //@Column( unique = true)
     String Symbol;

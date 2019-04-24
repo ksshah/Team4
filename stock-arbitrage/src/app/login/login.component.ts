@@ -10,11 +10,8 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  u:User=new User;
   d:User=new User;
-  P:string="";
-  U:string="";
-  pass:number=0;
+  //pass:number=0;
 
   constructor(private router:Router,private service:StockDataService) {
     
@@ -22,20 +19,22 @@ export class LoginComponent implements OnInit {
   
   ngOnInit() {
   }
-  Auth(){
-
-    this.d={username:this.U, password:this.P,isLogged:false};
-
+  Auth(myform){
+    console.log(this.d);
+    console.log("Values are: ",myform.value);
     this.service.getpass(this.d.username,this.d.password).subscribe(
-      data=>this.pass=data,      
-    );    
-    if(this.pass==1){
+      data=>this.d.userid=data,      
+    );   
+    console.log(this.d.userid); 
+    if(this.d.userid!=null && this.d.userid!=0){
         this.d.isLogged=true;
+        this.service.setUser(this.d);
         this.router.navigateByUrl("/list");        // if fail pass again
     }
-    else if(this.pass==0){
+    else if(this.d.userid==null){
         this.router.navigateByUrl("/");        //if success 
     }
+
   }
 
 }

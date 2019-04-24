@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -17,6 +18,7 @@ import java.util.stream.Stream;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 class MyComparator implements Comparator<StockDetails>{
     @Override
@@ -24,8 +26,11 @@ class MyComparator implements Comparator<StockDetails>{
         return (int) (o.Per_diff-s.Per_diff);
     }    
 }
-
+@RestController
 public class StockService {
+	
+	@Autowired
+	private StockDatabase SD;
 	
 	public ArrayList<StockDetails> GetStocks() throws IOException{
 		
@@ -54,7 +59,9 @@ public class StockService {
 			if(se.BSE!=0 && se.NSE!=0) {
 				se.calculate_diff();
 				StockList.add(se);
+				SD.Add(se);
 			}
+			System.out.println("Hii im adding");
 		}
 		StockList=SortStocks(StockList);
 		return StockList;
@@ -86,7 +93,6 @@ public class StockService {
         return d;
 	}
 	public ArrayList<StockDetails> SortStocks(ArrayList<StockDetails> stockList){
-		
 		Collections.sort(stockList,(s1, s2) ->
 	    Double.compare(s2.getPer_diff(), s1.getPer_diff()));
 		for(int i=0;i<stockList.size();i++) {

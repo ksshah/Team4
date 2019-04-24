@@ -1,10 +1,12 @@
 <h2><font>Arbitrage Opportunities</font></h2>
-<button align="right">Logout</button>
+<button  (click)="save()">Save Selected Stocks</button>
+<button  (click)="profile()">My Profile</button>
 <section>
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0" rules="all">
     <tbody>
         <tr bgcolor="#214FAC">
+            <th>Sr.No</th>
             <th>Symbol</th>
             <th>Bse</th>
             <th>Nse</th>
@@ -14,20 +16,20 @@
             <th>Trade</th>
           </tr>
         <tr *ngFor="let stock of stocks">
+          <td>{{stock.srNo}}</td>
           <td>{{stock.symbol}}</td>
           <td>{{stock.bse}}</td>
           <td>{{stock.nse}}</td>
           <td>{{stock.diff}}</td>
           <td>{{stock.per_diff}}</td>
           <td>{{stock.buy}}</td>
-          <td><input type="checkbox" model.bind="stock" checked.bind="selectedst"> Save <br></td>
+          <td><mat-checkbox #checkbox="matCheckbox" (change)="Addtodatabase($event,stock)"> Save </mat-checkbox><br></td>
         </tr>
       </tbody>
     </table>
   
    </div>  
 </section>
-
 
 <!-- <p>
   this works!

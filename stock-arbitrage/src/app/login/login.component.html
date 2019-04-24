@@ -1,11 +1,12 @@
 <div class="image"> 
-  <form #f='ngForm' class="login"  name="users" (ngSubmit)="Auth()" >
+  <form #myform="ngForm" class="login"  name="users" (ngSubmit)="Auth(myform)" >
     <h1 class="login-title">Login</h1>
-    <input type="text" class="login-input" placeholder="Enter you Username" [(ngModel)]="U" name="uname">
-    <input type="password" class="login-input" placeholder="Correct Password" [(ngModel)]="P" name="pass">
-    <input type="submit" class="login-button" value="Login Success" >
-    <a *ngIf="pass==1" routerLink="/list">
-    </a> 
+    <input type="text" ngModel class="login-input" placeholder="Enter you Username" [(ngModel)]="d.username" name="uname">
+    <input type="password" ngModel class="login-input" placeholder="Correct Password" [(ngModel)]="d.password" name="pass">
+    <input type="submit" ngModel class="login-button" value="Login" [(ngModel)]="d.userid">
+    <a *ngIf="d.userid==0">
+      Invalid Username or Password
+    </a>
   </form> 
 </div>
 <!--routerLink="/list"
